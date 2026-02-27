@@ -42,7 +42,7 @@ All search modes (plain, fuzzy, regex, content) respect the case sensitivity fla
 ### Filtering
 
 **Extension filter**
-Space or comma-separated list of file extensions. Filtering is applied before any content is read, so it meaningfully speeds up content searches on large directories.
+Space or comma-separated list of file extensions. Accepts `.py .js .txt` or `.py,.js,.txt`. Filtering is applied before any content is read, so it meaningfully speeds up content searches on large directories.
 
 **Date range filter**
 Filter by last-modified date using `YYYY-MM-DD` format. Both start and end dates are optional — you can specify just one to create an open-ended range. Dates are validated before the search starts, with an error shown in the status bar if the format is wrong.
@@ -159,7 +159,7 @@ A 320ms debounce timer on all inputs means the search does not fire on every key
 git clone https://github.com/you/finder-plus
 cd finder-plus
 pip install PySide6 rapidfuzz
-python quicksearch.py
+python finderplus.py
 ```
 
 `rapidfuzz` is optional. If it is not installed, fuzzy matching is disabled and all other features work normally.
@@ -168,7 +168,7 @@ python quicksearch.py
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile --windowed --name "Finder+" quicksearch.py
+pyinstaller --onefile --windowed --name "Finder+" finderplus.py
 ```
 
 The executable will be at `dist/Finder+.exe`. No Python installation required on the target machine.
@@ -176,7 +176,7 @@ The executable will be at `dist/Finder+.exe`. No Python installation required on
 If you encounter missing module errors when running the compiled exe, use:
 
 ```bash
-pyinstaller --onefile --windowed --name "Finder+" --collect-all PySide6 quicksearch.py
+pyinstaller --onefile --windowed --name "Finder+" --collect-all PySide6 finderplus.py
 ```
 
 ---
